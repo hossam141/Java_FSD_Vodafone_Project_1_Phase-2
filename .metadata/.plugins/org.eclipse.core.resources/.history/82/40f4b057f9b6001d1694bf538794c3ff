@@ -1,0 +1,14 @@
+package entity;
+
+public class Class {
+	private int id;
+	private String starting_day;
+	private String ending_day;
+	private String time;
+	private int subid;
+	
+	public Class() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+}

@@ -1,0 +1,13 @@
+127.0.0.1 - - [28/Feb/2023:02:07:17 +0200] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:07:18 +0200] "GET /Admin_for_Learners__Academy/ HTTP/1.1" 200 1422
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:07:29 +0200] "GET /Admin_for_Learners__Academy/index.html HTTP/1.1" 404 793
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:07:31 +0200] "GET /Admin_for_Learners__Academy/index.html HTTP/1.1" 404 793
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:07:34 +0200] "GET /Admin_for_Learners__Academy/login.jsp HTTP/1.1" 404 739
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:07:47 +0200] "GET /Admin_for_Learners__Academy/index.html HTTP/1.1" 404 793
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:07:49 +0200] "GET /Admin_for_Learners__Academy/index.html HTTP/1.1" 404 793
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:08:02 +0200] "GET /Admin_for_Learners__Academy/index.html HTTP/1.1" 404 793
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:08:30 +0200] "GET /Admin_for_Learners__Academy/index.html HTTP/1.1" 404 793
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:08:31 +0200] "GET /Admin_for_Learners__Academy/index.html HTTP/1.1" 404 793
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:08:36 +0200] "GET /Admin_for_Learners__Academy/index.jsp HTTP/1.1" 200 1421
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:08:37 +0200] "GET /Admin_for_Learners__Academy/index.jsp HTTP/1.1" 200 1421
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:02:08:38 +0200] "GET /Admin_for_Learners__Academy/index.jsp HTTP/1.1" 200 1421

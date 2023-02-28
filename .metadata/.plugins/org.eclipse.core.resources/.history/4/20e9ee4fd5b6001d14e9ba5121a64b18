@@ -1,0 +1,8 @@
+package entity;
+
+public class Class {
+	private int id;
+	private String day;
+	private String date;
+	private int subid;
+}

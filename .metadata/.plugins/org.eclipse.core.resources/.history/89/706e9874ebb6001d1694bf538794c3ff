@@ -1,0 +1,24 @@
+package logic;
+
+import java.sql.SQLException;
+
+import database.SubjectDB;
+import entity.Subject;
+
+public class TestDB {
+
+	public static void main(String[] args) {
+		SubjectDB db = new SubjectDB();
+		try {
+			
+			for(Subject s : db.getAllSubjects()) 
+				System.out.println(s);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
