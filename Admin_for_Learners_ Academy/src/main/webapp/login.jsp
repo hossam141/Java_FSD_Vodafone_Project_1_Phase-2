@@ -15,6 +15,9 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 	<style>
+	.error{
+		color:red;
+	}
 	</style>
 </head>
 <body>
@@ -32,7 +35,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="index.html">Home</a></li>
+						aria-current="page" href="index.jsp">Home</a></li>
 					<%
 					String id = (String) session.getAttribute("id");
 					if (id == null) {
@@ -43,7 +46,7 @@
 					}
 					if (id != null) {
 					%>
-					<li class="nav-item"><a class="nav-link" href="logout.jsp">Logout</a>
+					<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
 					</li>
 					<%
 					}
@@ -67,6 +70,12 @@
 							placeholder="Password" /> <input type="submit"
 							class="fadeIn fourth" value="Log In" />
 					</form>
+					<%
+					String error = request.getParameter("error");
+					if(error !=  null){
+					%>
+					<div class="error"><%= error %></div>
+					<%} %>
 				</div>
 			</div>
 		</div>

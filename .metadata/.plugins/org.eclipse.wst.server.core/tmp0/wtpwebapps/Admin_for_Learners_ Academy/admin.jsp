@@ -18,7 +18,33 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>Welcome ADMIN</h1>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">CMS</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
+					<%
+					String id = (String) session.getAttribute("id");
+					if (id != null) {
+					%>
+					<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
+					</li>
+					<%
+					}
+					%>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<h1>Scheduled Classes</h1>
 	<%
 		List<Class> classes = (List<Class>)request.getAttribute("classes");
 	%>
@@ -29,6 +55,8 @@
 			<th>Starting_Date</th>
 			<th>Ending_Date</th>
 			<th>Time</th>
+			<th>Subject</th>
+			<th>Assign Subject</th>
 		</tr>
 		<%
 			for(Class cl : classes)
@@ -39,6 +67,26 @@
 				<td><%= cl.getStarting_day() %></td>
 				<td><%= cl.getEnding_day() %></td>
 				<td><%= cl.getTime() %></td>
+				<%
+					switch(cl.getSubid()) {
+					case 1: 
+						out.println("<td>No Subject Assigned</td>");
+						break;
+					case 2: 
+						out.println("<td>HTML</td>");
+						break;
+					case 3: 
+						out.println("<td>CSS</td>");
+						break;
+					case 4: 
+						out.println("<td>SQL</td>");
+						break;
+					case 5: 
+						out.println("<td>JSP</td>");
+						break;
+					}
+				%>
+				<td><a href="assignSub.jsp?cid=<%=cl.getId()%>">Assign Subject</a> </td>
 			</tr>
 		<%
 			}

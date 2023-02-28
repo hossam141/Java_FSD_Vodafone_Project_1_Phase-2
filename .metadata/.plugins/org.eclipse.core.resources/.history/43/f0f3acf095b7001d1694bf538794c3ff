@@ -1,0 +1,72 @@
+<%@page import="entity.Class"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>Scheduled Classes</h1>
+	<%
+		List<Class> classes = (List<Class>)request.getAttribute("classes");
+	%>
+	<div class="container">
+	<table class="table">
+		<tr>
+			<th>ID</th>
+			<th>Starting_Date</th>
+			<th>Ending_Date</th>
+			<th>Time</th>
+			<th>Subject</th>
+			<th>Assign Subject</th>
+		</tr>
+		<%
+			for(Class cl : classes)
+			{
+		%>
+			<tr>
+				<td><%= cl.getId() %></td>
+				<td><%= cl.getStarting_day() %></td>
+				<td><%= cl.getEnding_day() %></td>
+				<td><%= cl.getTime() %></td>
+				<%
+					switch(cl.getSubid()) {
+					case 1: 
+						out.println("<td>No Subject Assigned</td>");
+						break;
+					case 2: 
+						out.println("<td>HTML</td>");
+						break;
+					case 3: 
+						out.println("<td>CSS</td>");
+						break;
+					case 4: 
+						out.println("<td>SQL</td>");
+						break;
+					case 5: 
+						out.println("<td>JSP</td>");
+						break;
+					}
+				%>
+				<td><a href="assignSub?cid=<%=cl.getId()%>">Assign Subject</a> </td>
+			</tr>
+		<%
+			}
+		%>
+
+	</table>
+	</div>
+</body>
+</html>

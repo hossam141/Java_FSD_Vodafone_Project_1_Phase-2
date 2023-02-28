@@ -1,0 +1,51 @@
+package servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import database.SubjectDB;
+
+/**
+ * Servlet implementation class AssignSubServlet
+ */
+@WebServlet("/assignSub")
+public class AssignSubServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AssignSubServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Pragma", "0");
+		String email = request.getParameter("id");
+		PrintWriter out = response.getWriter();
+		out.println("<h1>Choose one of the below subjests to be assigend for this class based on the number: </h1>");
+		
+		
+		SubjectDB db = new SubjectDB();
+	//	try {
+	//		db 
+	//		response.sendRedirect("admin");
+			
+	//	} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+	///		e.printStackTrace();
+		}
+	}
+
+	
+
+

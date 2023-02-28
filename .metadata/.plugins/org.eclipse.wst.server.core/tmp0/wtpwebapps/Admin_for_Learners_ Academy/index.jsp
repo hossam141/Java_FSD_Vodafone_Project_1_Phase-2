@@ -46,7 +46,7 @@
 					}
 					if (id != null) {
 					%>
-					<li class="nav-item"><a class="nav-link" href="logout.jsp">Logout</a>
+					<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
 					</li>
 					<%
 					}

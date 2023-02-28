@@ -31,4 +31,22 @@ public class ClassDB {
 		}
 		return classes;
 	}
+	
+	public boolean updateClassById(int subid, int id) throws SQLException
+	{
+
+		String sql = "update classes set subID=? where id=?";
+		Connection conn = DBConnection.dbConn();
+		PreparedStatement stat = conn.prepareStatement(sql);
+		stat.setInt(1, subid);
+		stat.setInt(2, id);
+		try {
+			stat.execute();
+		}catch(Exception e)
+		{
+			System.out.println("error "+e.getMessage());
+			return false;
+		}
+		return true;
+	}
 }
