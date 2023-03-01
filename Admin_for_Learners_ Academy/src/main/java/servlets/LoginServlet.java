@@ -43,8 +43,7 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		response.setContentType("text/html");
-		if(email.equals("admin") 
-				&& password!=null && password.equals("admin") )
+		if(email.equals("admin")  && password!=null && password.equals("admin") )
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("id", email);

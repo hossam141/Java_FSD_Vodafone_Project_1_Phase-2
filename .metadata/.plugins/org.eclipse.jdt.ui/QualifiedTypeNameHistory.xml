@@ -1,14 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="entity.Class"/>
-    <fullyQualifiedTypeName name="entity.Subject"/>
-    <fullyQualifiedTypeName name="database.ClassDB"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="java.sql.SQLException"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-    <fullyQualifiedTypeName name="database.SubjectDB"/>
-    <fullyQualifiedTypeName name="javax.security.auth.Subject"/>
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>

@@ -1,4 +1,6 @@
 <%@page import="entity.Class"%>
+<%@page import="database.TeacherDB"%>
+<%@page import="database.SubjectDB"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -47,6 +49,8 @@
 	<h1>Scheduled Classes</h1>
 	<%
 		List<Class> classes = (List<Class>)request.getAttribute("classes");
+		TeacherDB teacherdb = new TeacherDB();
+		SubjectDB subjectdb = new SubjectDB();
 	%>
 	<div class="container">
 	<table class="table">
@@ -57,6 +61,8 @@
 			<th>Time</th>
 			<th>Subject</th>
 			<th>Assign Subject</th>
+			<th>Instructor</th>
+			<th>Assign Instructor</th>
 		</tr>
 		<%
 			for(Class cl : classes)
@@ -67,31 +73,14 @@
 				<td><%= cl.getStarting_day() %></td>
 				<td><%= cl.getEnding_day() %></td>
 				<td><%= cl.getTime() %></td>
-				<%
-					switch(cl.getSubid()) {
-					case 1: 
-						out.println("<td>No Subject Assigned</td>");
-						break;
-					case 2: 
-						out.println("<td>HTML</td>");
-						break;
-					case 3: 
-						out.println("<td>CSS</td>");
-						break;
-					case 4: 
-						out.println("<td>SQL</td>");
-						break;
-					case 5: 
-						out.println("<td>JSP</td>");
-						break;
-					}
-				%>
-				<td><a href="assignSub.jsp?cid=<%=cl.getId()%>">Assign Subject</a> </td>
+				<td><%= subjectdb.getSubjectById(cl.getSubid()) %></td>
+				<td><a href="assignSub.jsp?cid=<%=cl.getId()%>">Assign Subject</a></td>
+				<td><%= teacherdb.getTeacherById(cl.getTeachID()) %></td>
+				<td><a href="assignInst.jsp?cid=<%=cl.getId()%>">Assign Instructor</a></td>
 			</tr>
 		<%
 			}
 		%>
-
 	</table>
 	</div>
 </body>

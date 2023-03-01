@@ -6,23 +6,22 @@ public class Class {
 	private String ending_day;
 	private String time;
 	private int subid;
+	private int teachID;
 	
 	public Class() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	public Class(int id, String starting_day, String ending_day, String time, int subid) {
+
+	public Class(int id, String starting_day, String ending_day, String time, int subid, int teachID) {
 		super();
 		this.id = id;
 		this.starting_day = starting_day;
 		this.ending_day = ending_day;
 		this.time = time;
 		this.subid = subid;
+		this.teachID = teachID;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -64,9 +63,22 @@ public class Class {
 		this.subid = subid;
 	}
 
+	public int getTeachID() {
+		return teachID;
+	}
+
+	public void setTeachID(int teachID) {
+		this.teachID = teachID;
+	}
+
 	@Override
 	public String toString() {
 		return "Class [id=" + id + ", starting_day=" + starting_day + ", ending_day=" + ending_day + ", time=" + time
-				+ ", subid=" + subid + "]";
+				+ ", subid=" + subid + ", teachID=" + teachID + "]";
 	}
+	
+	
+	
+	
+	
 }

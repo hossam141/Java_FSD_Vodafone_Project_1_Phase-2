@@ -10,9 +10,9 @@ public class DBConnection {
 			Connection conn = null;
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				System.out.println("Driver loaded");
+			//	System.out.println("Driver loaded");
 				conn = DriverManager.getConnection("jdbc:mysql://localhost:3308/learners_academy_db", "root", "root");
-				System.out.println("DB conected");
+			//	System.out.println("DB conected");
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

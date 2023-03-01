@@ -19,35 +19,35 @@ import logic.operation;
 /**
  * Servlet implementation class AssignSubServlet
  */
-@WebServlet("/assignSub")
-public class AssignSubServlet extends HttpServlet {
+@WebServlet("/assignInst")
+public class AssignInstServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AssignSubServlet() {
+    public AssignInstServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String SubID = (String) request.getParameter("sid");
+		String TeacherID = (String) request.getParameter("tid");
 		operation ID = new operation();
-		int sid = ID.convert(SubID);
-		System.out.println(sid);
+		int tid = ID.convert(TeacherID);
+		//System.out.println(tid);
 		HttpSession session = request.getSession();
 		String CID = (String) session.getAttribute("cid");
 		int cid = ID.convert(CID);
-		System.out.println(cid);
+	//	System.out.println(cid);
 		ClassDB db = new ClassDB();
 		try {
-			if(db.updateSubClassById(sid, cid)) {
+			if(db.updateTeachClassById(tid, cid)) {
 				response.sendRedirect("admin");
-				session.removeAttribute("cid");
+				session.removeAttribute("tid");
 			}
 			else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("assignSub.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("assignInst.jsp");
 				PrintWriter out = response.getWriter();
 				out.println("<p>Pleae Enter Valid Number</p>");
 				dispatcher.include(request, response);	
@@ -57,7 +57,4 @@ public class AssignSubServlet extends HttpServlet {
 		}
 	}
 }
-
-	
-
 
