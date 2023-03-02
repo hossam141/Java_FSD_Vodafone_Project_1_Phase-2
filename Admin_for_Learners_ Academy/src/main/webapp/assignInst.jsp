@@ -26,7 +26,7 @@
 				<div class="col-lg-6 col-lg-offset-3">
 					<div class="form-group">
 						<label for="name">Choose one of the below instructors to be assigned for this class based on the number:</label> 
-						<input type="text"class="form-control" id="teacherID" placeholder="Enter Subject ID" name="tid">
+						<input type="text"class="form-control" id="teacherID" placeholder="Enter Instructor ID" name="tid">
 					</div>
 					<div align="center">
 						<input type="submit" class="btn btn-primary" value="Assign"/>
@@ -49,11 +49,11 @@
 				<th>ID</th>
 				<th>Instructor</th>
 			</tr>
-			<tr>
 			<%
 			for(Teacher Ins : teachers)
 			{
 			%>
+			<tr>
 				<td><%= Ins.getId() %></td>
 				<td><%= Ins.getName() %></td>
 			</tr>

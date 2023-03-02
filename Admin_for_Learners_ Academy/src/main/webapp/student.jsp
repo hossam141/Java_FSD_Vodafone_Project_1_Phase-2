@@ -1,5 +1,6 @@
 <%@page import="entity.Class"%>
-<%@page import="database.TeacherDB"%>
+<%@page import="entity.Student"%>
+<%@page import="database.StudentDB"%>
 <%@page import="database.SubjectDB"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -33,7 +34,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
-					<li class="nav-item"><a class="nav-link active" aria-current="page" href="student.jsp">Applied Students</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="admin">Main Admin Page</a></li>
 					<%
 					String id = (String) session.getAttribute("id");
 					if (id != null) {
@@ -47,39 +48,36 @@
 			</div>
 		</div>
 	</nav>
-	<h1>Scheduled Classes</h1>
+	<h1>Students Applied</h1>
 	<%
-		List<Class> classes = (List<Class>)request.getAttribute("classes");
-		TeacherDB teacherdb = new TeacherDB();
-		SubjectDB subjectdb = new SubjectDB();
+			SubjectDB subdb = new SubjectDB();
+			StudentDB db = new StudentDB();
+			List<Student> students = db.getAllStudents();	
 	%>
+	
 	<div class="container">
 	<table class="table">
 		<tr>
 			<th>ID</th>
-			<th>Starting_Date</th>
-			<th>Ending_Date</th>
-			<th>Time</th>
-			<th>Subject</th>
-			<th>Assign Subject</th>
-			<th>Instructor</th>
-			<th>Assign Instructor</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Requested Subject</th>
+			<th>Class ID</th>
+			<th>Assign Class</th>
 		</tr>
 		<%
-			for(Class cl : classes)
+			for(Student st : students)
 			{
 		%>
 			<tr>
-				<td><%= cl.getId() %></td>
-				<td><%= cl.getStarting_day() %></td>
-				<td><%= cl.getEnding_day() %></td>
-				<td><%= cl.getTime() %></td>
-				<td><%= subjectdb.getSubjectById(cl.getSubid()) %></td>
-				<td><a href="assignSub.jsp?cid=<%=cl.getId()%>">Assign Subject</a></td>
-				<td><%= teacherdb.getTeacherById(cl.getTeachID()) %></td>
-				<td><a href="assignInst.jsp?cid=<%=cl.getId()%>">Assign Instructor</a></td>
+				<td><%= st.getId() %></td>
+				<td><%= st.getName() %></td>
+				<td><%= st.getEmail() %></td>
+				<td><%= subdb.getSubjectById(st.getReq_sub_id()) %></td>
+				<td><%= st.getClass_id() %></td>
+				<td><a href="assignClass.jsp?stid=<%=st.getId()%>&req_sub_id=<%=st.getReq_sub_id()%>">Assign Class</a></td>
 			</tr>
-		<%
+			<%
 			}
 		%>
 	</table>

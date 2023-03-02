@@ -59,6 +59,10 @@
 			<tr>
 				<td>5</td>
 				<td>JSP</td>	
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>Java</td>	
 			</tr>	
 </body>
 </html>
