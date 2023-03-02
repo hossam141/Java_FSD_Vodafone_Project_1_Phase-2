@@ -35,7 +35,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="index.jsp">Home</a></li>
+						aria-current="page" href="index.jsp">Home</a></li>	
 					<%
 					String id = (String) session.getAttribute("id");
 					if (id == null) {
@@ -47,6 +47,8 @@
 					if (id != null) {
 					%>
 					<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="admin">Admin Page</a>
 					</li>
 					<%
 					}

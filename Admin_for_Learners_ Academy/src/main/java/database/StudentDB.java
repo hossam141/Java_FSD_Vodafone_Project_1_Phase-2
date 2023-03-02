@@ -35,7 +35,6 @@ public class StudentDB {
 	
 	public boolean updateStudentClassById(int classId, int id) throws SQLException
 	{
-
 		String sql = "update students set class_id=? where id=?";
 		Connection conn = DBConnection.dbConn();
 		PreparedStatement stat = conn.prepareStatement(sql);
@@ -49,5 +48,20 @@ public class StudentDB {
 			return false;
 		}
 		return true;
+	}
+	
+	public List<String> getEmailStudentByClassId(int class_id) throws SQLException {
+		List<String> students = new ArrayList<String>();
+		String sql = "select email from students where class_id=?";
+		Connection conn = DBConnection.dbConn();
+		PreparedStatement stat = conn.prepareStatement(sql);
+		stat.setInt(1, class_id);
+		ResultSet rs = stat.executeQuery();
+		String name = null;
+		while(rs.next()) {
+			name = rs.getString(1);
+			students.add(name);
+	}
+		return students;
 	}
 }
